@@ -2,16 +2,16 @@ name: Linting Check
 
 on:
   push:
-    branches: [develop]
+    branches: [ develop ]
   pull_request:
-    branches: [develop]
+    branches: [ develop ]
 
 jobs:
   lint:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Set up Node.js
@@ -21,11 +21,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install htmlhint stylelint stylelint-config-standard --save-dev
+          npm install -g htmlhint stylelint stylelint-config-standard
 
-      - name: Run HTMLHint
-        run: npx htmlhint "**/*.html" --config .htmlhintrc.json
+      - name: Lint HTML
+        run: htmlhint **/*.html
 
-      - name: Run Stylelint
-        run: npx stylelint "**/*.css" --config .stylelintrc.json
-
+      - name: Lint CSS
+        run: stylelint "**/*.css"
