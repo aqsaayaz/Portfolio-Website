@@ -2,9 +2,9 @@ name: Linting Check
 
 on:
   push:
-    branches: [develops]
+    branches: ['*']
   pull_request:
-    branches: [develops]
+    branches: ['*']
 
 jobs:
   lint:
