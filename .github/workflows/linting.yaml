@@ -27,5 +27,5 @@ jobs:
         run: htmlhint "**/*.html"
 
       - name: Run Stylelint
-        run: stylelint "**/*.css" || true  # prevents workflow from failing instantly
+        run: stylelint "**/*.css" 
 
